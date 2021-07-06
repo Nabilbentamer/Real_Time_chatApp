@@ -1,0 +1,143 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap");
+
+* {
+  margin: 0%;
+  padding: 0%;
+  font-family: "Poppins", sans-serif;
+  text-decoration: none;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #f7f7f7;
+}
+
+.users-container {
+  background: #ffff;
+  width: 400px;
+  /*border-radius: 16px;*/
+
+  -webkit-box-shadow: 5px 1px 8px 3px rgba(0, 0, 0, 0.25);
+  box-shadow: 5px 1px 8px 3px rgba(0, 0, 0, 0.25);
+}
+
+.users-container .users {
+  padding: 15px;
+  height: 450px;
+}
+
+.users header {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 15px;
+  background-color: #dfdddd;
+}
+.user-details {
+  padding: 5px;
+  background: #f7f7f7;
+  border-bottom: 1px solid rgb(190, 183, 183);
+}
+
+header .content {
+  display: flex;
+}
+header .content img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.content .details,
+.details-user-message {
+  margin-left: 10px;
+}
+.content .details span {
+  font-weight: 600;
+  font-size: 17px;
+}
+.content .details .status {
+  font-size: 10px;
+  color: green;
+  display: flex;
+}
+
+.content .details-user-message i {
+  color: green;
+  font-size: 10px;
+  margin-left: 5px;
+}
+.message p {
+  color: grey;
+  font-weight: 500;
+  margin-top: 2px;
+  font-size: 14.5px;
+}
+.content .details .status i {
+  margin-top: 3.5px;
+}
+
+.content .details p {
+  font-size: 12px;
+  margin-left: 10px;
+}
+
+header a {
+  background: black;
+  color: #f7f7f7;
+  padding: 5px 10px;
+  border-radius: 10px;
+  height: 30px;
+  outline: none;
+}
+header a:hover {
+  cursor: pointer;
+}
+
+.search {
+  margin-top: 20px;
+}
+.search input {
+  width: 100%;
+  padding: 7px 7px;
+  width: calc(100% - 80px);
+}
+
+.search button {
+  height: 38px;
+  width: 47px;
+  border: none;
+  color: #fff;
+  background: #333;
+  font-size: 17px;
+  border-radius: 5px;
+}
+.chatArea {
+  width: 500px;
+  height: 450px;
+  padding: 15px;
+}
+
+.user-list {
+  margin-top: 15px;
+  border-bottom: 1px solid rgb(230, 219, 219);
+}
+
+.chat-section {
+  height: 400px;
+  background: #f7f7f7;
+  padding: 15px;
+}
+
+.chatArea .recipient-details {
+  display: flex;
+}
+
+.recipient-details i {
+  color: green;
+  font-size: 10px;
+  margin: 6px 0px 0px 10px;
+}

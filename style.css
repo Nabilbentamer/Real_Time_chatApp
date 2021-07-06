@@ -58,6 +58,7 @@ form .name_details .field:last-child {
   text-align: center;
   padding: 8px 20px;
   margin-bottom: 10px;
+  display: none;
 }
 
 .form form .field {
@@ -69,11 +70,37 @@ form .name_details .field:last-child {
 .form form .input input {
   height: 40px;
   width: 100%;
-  font-size: 0px;
   padding: 0 10px;
   border: 1px solid #ccc;
 }
 
+.form form .button input {
+  margin-top: 10px;
+  height: 35px;
+  border-radius: 2px;
+  color: #ffff;
+  background: #333;
+  cursor: pointer;
+  font-size: 15px;
+}
+
 .field_type {
   display: flex;
+  text-align: center;
+}
+
+.field_image {
+  margin-top: 5px;
+  margin-left: 5px;
+}
+.field_type label {
+  margin-left: 5px;
+}
+.field_type input {
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+.link a:hover {
+  text-decoration: underline;
 }
