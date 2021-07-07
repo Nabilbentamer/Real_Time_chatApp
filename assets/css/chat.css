@@ -33,7 +33,6 @@ body {
   display: flex;
   justify-content: space-between;
   padding-bottom: 15px;
-  background-color: #dfdddd;
 }
 .user-details {
   padding: 5px;
@@ -69,6 +68,10 @@ header .content img {
   color: green;
   font-size: 10px;
   margin-left: 5px;
+}
+
+.content .sophia i {
+  color: coral;
 }
 .message p {
   color: grey;
@@ -119,6 +122,8 @@ header a:hover {
   width: 500px;
   height: 450px;
   padding: 15px;
+  background: #f7f7f7;
+  position: relative;
 }
 
 .user-list {
@@ -128,16 +133,132 @@ header a:hover {
 
 .chat-section {
   height: 400px;
-  background: #f7f7f7;
-  padding: 15px;
+  padding: 10px 30px 20px 30px;
 }
 
 .chatArea .recipient-details {
   display: flex;
+  color: rgb(153, 153, 153);
+}
+.chatArea .recipient-details span {
+  text-decoration: underline;
 }
 
 .recipient-details i {
   color: green;
   font-size: 10px;
   margin: 6px 0px 0px 10px;
+}
+
+.chat {
+  margin: 16px 0;
+}
+
+.chat-section .chat p {
+  padding: 8px 16px;
+}
+.outgoing .details {
+  margin-left: auto;
+  max-width: calc(100% - 130px);
+}
+.outgoing .details p {
+  padding: 8px 16px;
+  background: #333;
+  color: #f7f7f7;
+  border-radius: 18px 18px 0px 18px;
+}
+.outgoing {
+  display: flex;
+}
+
+.incoming {
+  display: flex;
+  align-items: flex-end;
+}
+.incoming .details {
+  background: #fff;
+  color: #333;
+  border-radius: 18px 18px 18px 0px;
+  margin-left: 10px;
+  margin-right: auto;
+  max-width: calc(100% -130px);
+}
+.incoming img {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user-profile {
+  width: 200px;
+  height: 450px;
+  padding: 15px;
+  background: rgb(53, 43, 43);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.user-profile .location {
+  margin-top: 10px;
+  display: flex;
+}
+.user-profile .location p {
+  margin-left: 7px;
+}
+.user-profile .bio {
+  margin-top: 10px;
+  font-size: 12px;
+}
+.user-profile img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.contact_buttons {
+  margin-top: 18px;
+}
+.contact_buttons button {
+  font-weight: 600;
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 8px;
+  background-color: white;
+  color: black;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.typing-area {
+  padding: 18px 30px;
+  background: #fff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 470px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.typing-area input {
+  height: 40px;
+  width: calc(100% - 90px);
+  font-size: 14px;
+  padding: 0 13px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.typing-area button {
+  width: 55px;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 19px;
+  cursor: pointer;
+  background: #333;
 }

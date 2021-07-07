@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <title>Chat Area</title>
-    <link rel="stylesheet" href="chat.css">
+    <link rel="stylesheet" href="css/chat.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" >
 
 </head>
@@ -12,7 +12,7 @@
             <section class="users">
                 <header class="user-details">
                     <div class="content">
-                        <img src="image.jpg" alt="">
+                        <img src="images/image.jpg" alt="">
                         <div class="details">
                             <span>Nabil Bentamer</span>
                             
@@ -33,7 +33,7 @@
 
                 <header class="user-list">
                     <div class="content">
-                        <img src="ecospare.png" alt="">
+                        <img src="images/ecospare.png" alt="">
                         <div class="details-user-message">
                             <span>EcoSpare Support</span>
                             <i class="fas fa-circle center"></i>
@@ -46,38 +46,38 @@
                    <!---- <a href="#" class="logout">Logout</a> -->
                 </header>
 
+                <header class="user-list">
+                    <div class="content">
+                        <img src="images/image1.jpg" alt="">
+                        <div class="details-user-message sophia">
+                            <span>Sophia</span>
+                            <i class="fas fa-circle offline"></i>
+                            <div class="message">                                
+                                <p>No message are available now.</p>
+                            </div>
+                            
+                        </div>
+                    </div>
+                   <!---- <a href="#" class="logout">Logout</a> -->
+                </header>  
                 
                 <header class="user-list">
                     <div class="content">
-                        <img src="image.jpg" alt="">
-                        <div class="details">
-                            <span>Nabil Bentamer</span>
-                            
-                            <div class="status">
-                                <i class="fas fa-circle"></i>
-                                <p>Active now</p>
+                        <img src="images/image2.jpg" alt="">
+                        <div class="details-user-message">
+                            <span>Daniel</span>
+                            <i class="fas fa-circle center"></i>
+                            <div class="message">                                
+                                <p>No message are available now.</p>
                             </div>
                             
                         </div>
                     </div>
                    <!---- <a href="#" class="logout">Logout</a> -->
                 </header>
+
                 
-                <header class="user-list">
-                    <div class="content">
-                        <img src="image.jpg" alt="">
-                        <div class="details">
-                            <span>Nabil Bentamer</span>
-                            
-                            <div class="status">
-                                <i class="fas fa-circle"></i>
-                                <p>Active now</p>
-                            </div>
-                            
-                        </div>
-                    </div>
-                   <!---- <a href="#" class="logout">Logout</a> -->
-                </header>
+
                 
 
 
@@ -89,28 +89,57 @@
 
         <div class="users-container chatArea">
             <div class="recipient-details">
-                <p>Message To : EcoSpare Support</p>
+                <p>Message To : <span>EcoSpare Support</span> </p>
                 <i class="fas fa-circle"></i>
             </div>
 
             <div class="chat-section">
 
-                <div class="chat-incoming">
-                    <img src="#" alt="">
+                <div class="chat outgoing">
                     <div class="details">
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit voluptatem eius ratione, nesciunt, provident soluta nemo quisquam facere consequuntur beatae, officiis officia harum culpa pariatur!</p>
+                        <p>Hey, What's up?</p>
                     </div>
                 </div>
 
-                <div class="chat-outgoing">
+                <div class="chat incoming">
+                    <img src="images/image.jpg" alt="">
                     <div class="details">
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae modi perspiciatis debitis asperiores aut qui officia nulla doloribus sint ut.</p>
+                        <p>All is good. and you?</p>
                     </div>
                 </div>
+                <div class="typing-area">
+                    <input type="text" placeholder="write a message to send">
+                    <button> <i class="fab fa-telegram"></i></button>
+                </div>
+            </div>
+
+
+
+        </div>
+
+        <div class="user-profile">
+            <img src="images/ecospare.png" alt="">
+            <div class="location">
+                <i class="fas fa-map-marker-alt"></i>
+                <p>Rabat ,<span>Morocco</span></p>
+
+            </div>
+            
+
+            <div class="bio">
+                EcoSpare is a rising company based in France that offer a Marketplace where you can find usefull items for your needs.
+            </div>
+
+            <div class="contact_buttons">
+                <button> Contacter à propos une commande </button>
+                <button> Contacter à propos un produit </button>
+                <button> Contacter un vendeur </button>
 
             </div>
 
         </div>
+
+    
 
         
 
