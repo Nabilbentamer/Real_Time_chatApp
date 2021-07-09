@@ -1,3 +1,5 @@
+<?php 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,41 +12,42 @@
     <div class="container">
         <section class="signup form">
             <header> Messagerie</header>
-            <form action="#">
+
+            <form method="POST" action="#" enctype='multipart/form-data'>
 
                 <div class="error_text"> This is an error message </div>
 
                 <div class="name_details">
                     <div class="field input">
                         <label> First Name</label>
-                        <input type="text" placeholder="First Name">
+                        <input type="text" placeholder="First Name" name="fname">
                     </div>
 
                     <div class="field input">
                         <label> Last Name</label>
-                        <input type="text" placeholder="Last Name">
+                        <input type="text" placeholder="Last Name" name="lname">
                     </div>                    
                 </div>
 
                     <div class="field input">
                         <label> Email Adresse</label>
-                        <input type="text" placeholder="Email adresse">
+                        <input type="text" placeholder="Email adresse" name="email">
                     </div>
                     
                     <div class="field input">
                         <label> Password</label>
-                        <input type="password" placeholder="Enter your password">
+                        <input type="password" placeholder="Enter your password" name="password">
                     </div> 
 
                     <div class="field_type">
                         <label>type :</label>
-                        <input type="radio" name="userType"> <label for="Vendeur">Vendeur</label>
-                        <input type="radio" name="userType"> <label for="Acheteur">Acheteur</label>
+                        <input type="radio"  name="type" value="vendeur"> <label for="Vendeur">Vendeur</label>
+                        <input type="radio" name="type" value="acheteur"> <label for="Acheteur">Acheteur</label>
                     </div> 
 
                     <div class="field_image">
                         <label> Image</label>
-                        <input type="file">
+                        <input type="file" name="image" accept="image/jpeg,image/png,image/jpg">
                     </div>
                     
                     <div class="field button">
@@ -54,10 +57,12 @@
             </form>
 
             <div class="link">
-                Already signed up? <a href="#">Login now</a>
+                Already signed up? <a href="login.php">Login now</a>
             </div>
         </section>
     </div>
+
+    <script src="js/signup.js"></script>
 
 </body>
 

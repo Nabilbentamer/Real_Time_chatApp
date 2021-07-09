@@ -8,20 +8,20 @@
 
 <body>
     <div class="container">
-        <section class="signup form">
+        <section class="signup form login">
             <header> Messagerie</header>
-            <form action="#">
+            <form action="#" method="POST">
 
                 <div class="error_text"> This is an error message </div>
 
                     <div class="field input">
                         <label> Email Adresse</label>
-                        <input type="text" placeholder="Email adresse">
+                        <input type="text" placeholder="Email adresse" name="email">
                     </div>
                     
                     <div class="field input">
                         <label> Password</label>
-                        <input type="password" placeholder="Enter your password">
+                        <input type="password" placeholder="Enter your password" name="password">
                     </div> 
                     
                     <div class="field button">
@@ -31,11 +31,11 @@
             </form>
 
             <div class="link">
-                don't have an account? <a href="#">Signup now</a>
+                don't have an account? <a href="index.php">Signup now</a>
             </div>
         </section>
     </div>
-
+    <script src="js/login.js"></script>
 </body>
 
 </html>
