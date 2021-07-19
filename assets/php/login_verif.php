@@ -1,5 +1,6 @@
 <?php 
     include_once "config.php";
+    session_start();
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $password = mysqli_real_escape_string($conn, $_POST['password']);
     if(!empty($email) && !empty($password)){
@@ -10,6 +11,7 @@
                 $status = "Active now";
                 $sql2 = mysqli_query($conn, "UPDATE users SET status = '{$status}' WHERE id = {$row['id']}");
                 if($sql2){
+                    $_SESSION['id'] = $row['id'];
                     echo "success";
                 }else{
                     echo "Something went wrong. Please try again!";

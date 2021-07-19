@@ -1,24 +1,42 @@
+<?php 
+    session_start();
+    include_once "php/config.php";
+    if(!isset($_SESSION['id'])){
+        header("location:login.php");
+    }
+    
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Chat Area</title>
-    <link rel="stylesheet" href="css/chat.css">
+    <link rel="stylesheet" href="css/chatarea.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" >
-
+    
 </head>
 <body>
 
         <div class="users-container">
             <section class="users">
                 <header class="user-details">
+                    <?php
+                        $user_id = $_SESSION['id'];
+                        $query = "SELECT * FROM users where id ='{$user_id}' ";
+                        $result = mysqli_query($conn,$query);
+                        if(mysqli_num_rows($result)>0){
+                            $row = mysqli_fetch_assoc($result);
+                        }
+
+                    ?>
                     <div class="content">
-                        <img src="images/image.jpg" alt="">
+                        <img src="php/images/<?php echo $row['image'] ?>" alt="">
                         <div class="details">
-                            <span>Nabil Bentamer</span>
+                            <span><?php echo $row['name']. " " . $row['lastname']; ?> </span>
                             
                             <div class="status">
                                 <i class="fas fa-circle"></i>
-                                <p>Active now</p>
+                                <p><?php echo $row['status'] ?> </p>
                             </div>
                             
                         </div>
@@ -31,41 +49,21 @@
                     <button><i class="fas fa-search"></i></button>
                 </div>
 
-                <header class="user-list">
-                    <div class="content">
-                        <img src="images/ecospare.png" alt="">
-                        <div class="details-user-message">
-                            <span>EcoSpare Support</span>
-                            <i class="fas fa-circle center"></i>
-                            <div class="message">                                
-                                <p>do you have questions? let's chat</p>
-                            </div>
-                            
-                        </div>
-                    </div>
-                   <!---- <a href="#" class="logout">Logout</a> -->
-                </header>
+                <div class="users-list">
 
+                    <?php
+                        $query1 = "SELECT * FROM users Where not id='{$user_id}'";
+                        $result1 = mysqli_query($conn,$query1);
+                        
+                        while($row_new = mysqli_fetch_assoc($result1)){
+    
+                    ?>
+                        
                 <header class="user-list">
                     <div class="content">
-                        <img src="images/image1.jpg" alt="">
-                        <div class="details-user-message sophia">
-                            <span>Sophia</span>
-                            <i class="fas fa-circle offline"></i>
-                            <div class="message">                                
-                                <p>No message are available now.</p>
-                            </div>
-                            
-                        </div>
-                    </div>
-                   <!---- <a href="#" class="logout">Logout</a> -->
-                </header>  
-                
-                <header class="user-list">
-                    <div class="content">
-                        <img src="images/image2.jpg" alt="">
+                        <img src="php/images/<?php echo $row_new['image']?>" alt="">
                         <div class="details-user-message">
-                            <span>Daniel</span>
+                            <span><?php  echo $row_new['name'] ?></span>
                             <i class="fas fa-circle center"></i>
                             <div class="message">                                
                                 <p>No message are available now.</p>
@@ -73,16 +71,13 @@
                             
                         </div>
                     </div>
-                   <!---- <a href="#" class="logout">Logout</a> -->
                 </header>
 
-                
+                    <?php
+                    }
+                    ?>
 
-                
-
-
-
-
+                </div>
     
             </section>
         </div>
@@ -141,7 +136,7 @@
 
     
 
-        
+    <script src="js/users.js"></script>    
 
 </body>
 </html>

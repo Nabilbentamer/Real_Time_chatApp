@@ -131,6 +131,11 @@ header a:hover {
   border-bottom: 1px solid rgb(230, 219, 219);
 }
 
+.users-list {
+  max-height: 320px;
+  overflow-y: auto;
+}
+
 .chat-section {
   height: 400px;
   padding: 10px 30px 20px 30px;
