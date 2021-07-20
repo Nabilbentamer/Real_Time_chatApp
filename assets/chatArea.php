@@ -51,6 +51,21 @@
 
                 <div class="users-list">
 
+                <header class="user-list">
+                    <div class="content">
+                        <img src="images/ecospare.png" alt="">
+                        <input type="hidden" value="1" name="ingoing_id">
+                        <div class="details-user-message">
+                            <span>EcoSpare Support</span>
+                            <i class="fas fa-circle center"></i>
+                            <div class="message">                                
+                                <p>Do you have any questions? let's chat!</p>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    </header>
+
                     <?php
                         $query1 = "SELECT * FROM users Where not id='{$user_id}'";
                         $result1 = mysqli_query($conn,$query1);
@@ -58,10 +73,12 @@
                         while($row_new = mysqli_fetch_assoc($result1)){
     
                     ?>
-                        
-                <header class="user-list">
+                    <header class="user-list">
                     <div class="content">
                         <img src="php/images/<?php echo $row_new['image']?>" alt="">
+
+                        <input type="hidden" value="<?php echo $row_new['id']?>" name="ingoing_id">
+                        
                         <div class="details-user-message">
                             <span><?php  echo $row_new['name'] ?></span>
                             <i class="fas fa-circle center"></i>
@@ -71,7 +88,7 @@
                             
                         </div>
                     </div>
-                </header>
+                    </header>
 
                     <?php
                     }
@@ -90,22 +107,19 @@
 
             <div class="chat-section">
 
-                <div class="chat outgoing">
-                    <div class="details">
-                        <p>Hey, What's up?</p>
-                    </div>
-                </div>
+            
+            <div class="chatbox">
 
-                <div class="chat incoming">
-                    <img src="images/image.jpg" alt="">
-                    <div class="details">
-                        <p>All is good. and you?</p>
-                    </div>
-                </div>
-                <div class="typing-area">
-                    <input type="text" placeholder="write a message to send">
-                    <button> <i class="fab fa-telegram"></i></button>
-                </div>
+            </div>
+
+                    <form action="#" method="POST">
+                        <div class="typing-area">
+                            <input type="text" placeholder="write a message to send" name="message_content">
+                            <button type="submit"> <i class="fab fa-telegram"></i></button>
+                        </div>
+                    </form>
+
+
             </div>
 
 

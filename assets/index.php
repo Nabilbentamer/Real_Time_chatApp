@@ -13,7 +13,7 @@
         <section class="signup form">
             <header> Messagerie</header>
 
-            <form method="POST" action="#" enctype='multipart/form-data'>
+            <form method="POST" action="#" enctype='multipart/form-data' autocomplete="off">
 
                 <div class="error_text"> This is an error message </div>
 
