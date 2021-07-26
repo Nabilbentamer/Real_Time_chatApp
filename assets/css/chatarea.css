@@ -139,6 +139,8 @@ header a:hover {
 .chat-section {
   height: 400px;
   padding: 10px 30px 20px 30px;
+  max-height: 300px;
+  overflow-y: auto;
 }
 
 .chatArea .recipient-details {
@@ -157,6 +159,17 @@ header a:hover {
 
 .chat {
   margin: 16px 0;
+}
+.commande_chat .details {
+  background-color: white;
+  padding: 5px;
+}
+.commande_chat .details span {
+  margin: 10px;
+}
+.commande_chat .side_bar_details {
+  display: flex;
+  column-gap: 15px;
 }
 
 .chat-section .chat p {

@@ -12,6 +12,7 @@
                 $sql2 = mysqli_query($conn, "UPDATE users SET status = '{$status}' WHERE id = {$row['id']}");
                 if($sql2){
                     $_SESSION['id'] = $row['id'];
+                    $_SESSION['name']= $row['name'];
                     echo "success";
                 }else{
                     echo "Something went wrong. Please try again!";

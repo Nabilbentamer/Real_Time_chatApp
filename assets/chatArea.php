@@ -106,13 +106,14 @@
             </div>
 
             <div class="chat-section">
+                
 
-            
+
             <div class="chatbox">
 
             </div>
 
-                    <form action="#" method="POST">
+                    <form method="POST" action="#" autocomplete="off">
                         <div class="typing-area">
                             <input type="text" placeholder="write a message to send" name="message_content">
                             <button type="submit"> <i class="fab fa-telegram"></i></button>
@@ -140,10 +141,26 @@
             </div>
 
             <div class="contact_buttons">
+                <?php 
+                    if($row['type']=="vendeur"){
+
+                    
+                ?>
+                
+                <button id="commande_contact_acheteur"> Contacter acheteur </button>
+                <button id="admin_contact"> Contacter Administration </button>
+                <?php
+                }
+                else{
+
+                
+                ?>        
                 <button> Contacter à propos une commande </button>
                 <button> Contacter à propos un produit </button>
                 <button> Contacter un vendeur </button>
-
+                <?php
+                }
+                ?>
             </div>
 
         </div>
