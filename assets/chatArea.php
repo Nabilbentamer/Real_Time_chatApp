@@ -50,7 +50,7 @@
                 </div>
 
                 <div class="users-list">
-
+                        <div class="test">
                 <header class="user-list">
                     <div class="content">
                         <img src="images/ecospare.png" alt="">
@@ -65,18 +65,41 @@
                         </div>
                     </div>
                     </header>
-
+                    </div>
                     <?php
-                        $query1 = "SELECT * FROM users Where not id='{$user_id}'";
+                        /*$query1 = "SELECT * FROM users Where not id='{$user_id}'";
                         $result1 = mysqli_query($conn,$query1);
                         
-                        while($row_new = mysqli_fetch_assoc($result1)){
+                        while($row_new = mysqli_fetch_assoc($result1)){}*/
     
                     ?>
+                    <div class="recent_conversations">
+                        <header class='user-list'>
+        <div class='content'>
+
+            <div class="avatars">
+                <span class="avatar">
+                <img src='php/images/img1.jpg'>
+                <img src='php/images/img2.jpg'>
+
+                </span>
+            </div>
+
+            <div class='details-user-message'>
+                <span>Admin and jane</span>
+                <i class='fas fa-circle center'></i>
+                <div class='message'>                                
+                    <p>this is a test message</p>
+                </div>
+            </div>
+        </div>
+        </header>
+                    </div>
+                    <!--
                     <header class="user-list">
                     <div class="content">
-                        <img src="php/images/<?php echo $row_new['image']?>" alt="">
 
+                        <img src="php/images/<?php echo $row_new['image']?>" alt="">
                         <input type="hidden" value="<?php echo $row_new['id']?>" name="ingoing_id">
                         
                         <div class="details-user-message">
@@ -90,9 +113,7 @@
                     </div>
                     </header>
 
-                    <?php
-                    }
-                    ?>
+                    !-->
 
                 </div>
     
@@ -107,19 +128,18 @@
 
             <div class="chat-section">
                 
-
-
             <div class="chatbox">
 
             </div>
 
                     <form method="POST" action="#" autocomplete="off">
                         <div class="typing-area">
-                            <input type="text" placeholder="write a message to send" name="message_content">
-                            <button type="submit"> <i class="fab fa-telegram"></i></button>
+                            <input type="file" size="60" hidden id="file_image"/>
+                            <button for="fileimage"><i class="fas fa-link"></i></button>
+                            <input id="typing_input" type="text" placeholder="write a message to send" name="message_content">
+                            <button type="submit"><i class="fab fa-telegram"></i> </button>
                         </div>
                     </form>
-
 
             </div>
 
