@@ -3,7 +3,7 @@
     include_once "config.php";
     
     
-    if(isset($_COOKIE['outgoing_id']) && $_SESSION['id']=='1' ){
+    if(isset($_COOKIE['outgoing_id']) && $_COOKIE['outgoing_id']!="1"  && $_SESSION['id']=='1' ){
         $incoming_msg_id = $_COOKIE['ingoing_id'].$_COOKIE['outgoing_id'];
     }
     else{

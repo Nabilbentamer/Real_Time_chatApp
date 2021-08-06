@@ -47,6 +47,7 @@ send_button.onclick = () => {
 }
 
 setInterval(()=>{update_chat();} ,500)
+setInterval(()=>{get_recent();} ,500)
 
 recent_conversations.addEventListener("click",function(event){
 
@@ -79,7 +80,7 @@ function update_chat(){
 
             let data = xhr.response ;
             chatbox.innerHTML = data;
-            //chat_section.scrollTop=chat_section.scrollHeight;
+            chat_section.scrollTop=chat_section.scrollHeight;
             get_recent();
 
         }
