@@ -13,14 +13,34 @@
     <title>Chat Area</title>
     <link rel="stylesheet" href="css/chatarea.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" >
-    
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$(".profile .icon_wrap").click(function(){
+			  $(this).parent().toggleClass("active");
+			  $(".notifications").removeClass("active");
+			});
+
+			$(".notifications .icon_wrap").click(function(){
+			  $(this).parent().toggleClass("active");
+			   $(".profile").removeClass("active");
+			});
+
+			$(".show_all .link").click(function(){
+			  $(".notifications").removeClass("active");
+			  $(".popup").show();
+			});
+
+			$(".close").click(function(){
+			  $(".popup").hide();
+			});
+		});
+	</script>
 </head>
 <body>
-
-        <div class="users-container">
-            <section class="users">
-                <header class="user-details">
-                    <?php
+<?php
                         $user_id = $_SESSION['id'];
                         $query = "SELECT * FROM users where id ='{$user_id}' ";
                         $result = mysqli_query($conn,$query);
@@ -29,8 +49,259 @@
                         }
 
                     ?>
+<div class="wrapper">
+  <div class="navbar">
+    <div class="navbar_left">
+      <div class="logo">
+        <a href="#">Spare World</a>
+      </div>
+    </div>
+
+    <div class="navbar_right">
+      <div class="notifications">
+        <div class="icon_wrap">
+            <i class="far fa-envelope"></i>
+            <span class="badge" id="MessageCount"></span>
+        </div>
+        
+        <div style="z-index: 100" class="notification_dd">
+            <ul class="notification_ul">
+                <li class="starbucks success">
+                    <div class="notify_icon">
+                        <span class="icon"></span>  
+                    </div>
+                    <div class="notify_data">
+                        <div class="title">
+                            Lorem, ipsum dolor.  
+                        </div>
+                        <div class="sub_title">
+                          Lorem ipsum dolor sit amet consectetur.
+                      </div>
+                    </div>
+                    <div class="notify_status">
+                        <p>Success</p>  
+                    </div>
+                </li>  
+                <li class="baskin_robbins failed">
+                    <div class="notify_icon">
+                        <span class="icon"></span>  
+                    </div>
+                    <div class="notify_data">
+                        <div class="title">
+                            Lorem, ipsum dolor.  
+                        </div>
+                        <div class="sub_title">
+                          Lorem ipsum dolor sit amet consectetur.
+                      </div>
+                    </div>
+                    <div class="notify_status">
+                        <p>Failed</p>  
+                    </div>
+                </li> 
+                <li class="mcd success">
+                    <div class="notify_icon">
+                        <span class="icon"></span>  
+                    </div>
+                    <div class="notify_data">
+                        <div class="title">
+                            Lorem, ipsum dolor.  
+                        </div>
+                        <div class="sub_title">
+                          Lorem ipsum dolor sit amet consectetur.
+                      </div>
+                    </div>
+                    <div class="notify_status">
+                        <p>Success</p>  
+                    </div>
+                </li>  
+                <li class="pizzahut failed">
+                    <div class="notify_icon">
+                        <span class="icon"></span>  
+                    </div>
+                    <div class="notify_data">
+                        <div class="title">
+                            Lorem, ipsum dolor.  
+                        </div>
+                        <div class="sub_title">
+                          Lorem ipsum dolor sit amet consectetur.
+                      </div>
+                    </div>
+                    <div class="notify_status">
+                        <p>Failed</p>  
+                    </div>
+                </li> 
+                <li class="kfc success">
+                    <div class="notify_icon">
+                        <span class="icon"></span>  
+                    </div>
+                    <div class="notify_data">
+                        <div class="title">
+                            Lorem, ipsum dolor.  
+                        </div>
+                        <div class="sub_title">
+                          Lorem ipsum dolor sit amet consectetur.
+                      </div>
+                    </div>
+                    <div class="notify_status">
+                        <p>Success</p>  
+                    </div>
+                </li> 
+                <li class="show_all">
+                    <p class="link">Show All Activities</p>
+                </li> 
+            </ul>
+        </div>
+        
+      </div>
+      <div class="profile">
+        <div class="icon_wrap">
+          <img src="php/images/<?php echo $row['image'] ?>" style='border-radius:50%;width:35px; height:35px;object-fit: cover;' alt="profile_pic">
+          <span class="name"><?php echo $row['name'] ?></span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+
+        <div class="profile_dd">
+          <ul class="profile_ul">
+            <li class="profile_li"><a class="profile" href="#"><span class="picon"><i class="fas fa-user-alt"></i>
+                </span>Profile</a>
+              <div class="btn">My Account</div>
+            </li>
+            <li><a class="address" href="#"><span class="picon"><i class="fas fa-map-marker"></i></span>Address</a></li>
+            <li><a class="settings" href="#"><span class="picon"><i class="fas fa-cog"></i></span>Settings</a></li>
+            <li><a class="logout" href="#"><span class="picon"><i class="fas fa-sign-out-alt"></i></span>Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="popup">
+    <div class="shadow"></div>
+    <div class="inner_popup">
+        <div class="notification_dd">
+            <ul class="notification_ul">
+                <li class="title">
+                    <p>All Notifications</p>
+                    <p class="close"><i class="fas fa-times" aria-hidden="true"></i></p>
+                </li> 
+                <li class="starbucks success">
+                    <div class="notify_icon">
+                        <span class="icon"></span>  
+                    </div>
+                    <div class="notify_data">
+                        <div class="title">
+                            Lorem, ipsum dolor.  
+                        </div>
+                        <div class="sub_title">
+                          Lorem ipsum dolor sit amet consectetur.
+                      </div>
+                    </div>
+                    <div class="notify_status">
+                        <p>Success</p>  
+                    </div>
+                </li>  
+                <li class="baskin_robbins failed">
+                    <div class="notify_icon">
+                        <span class="icon"></span>  
+                    </div>
+                    <div class="notify_data">
+                        <div class="title">
+                            Lorem, ipsum dolor.  
+                        </div>
+                        <div class="sub_title">
+                          Lorem ipsum dolor sit amet consectetur.
+                      </div>
+                    </div>
+                    <div class="notify_status">
+                        <p>Failed</p>  
+                    </div>
+                </li> 
+                <li class="mcd success">
+                    <div class="notify_icon">
+                        <span class="icon"></span>  
+                    </div>
+                    <div class="notify_data">
+                        <div class="title">
+                            Lorem, ipsum dolor.  
+                        </div>
+                        <div class="sub_title">
+                          Lorem ipsum dolor sit amet consectetur.
+                      </div>
+                    </div>
+                    <div class="notify_status">
+                        <p>Success</p>  
+                    </div>
+                </li>  
+                <li class="baskin_robbins failed">
+                    <div class="notify_icon">
+                        <span class="icon"></span>  
+                    </div>
+                    <div class="notify_data">
+                        <div class="title">
+                            Lorem, ipsum dolor.  
+                        </div>
+                        <div class="sub_title">
+                          Lorem ipsum dolor sit amet consectetur.
+                      </div>
+                    </div>
+                    <div class="notify_status">
+                        <p>Failed</p>  
+                    </div>
+                </li> 
+                <li class="pizzahut failed">
+                    <div class="notify_icon">
+                        <span class="icon"></span>  
+                    </div>
+                    <div class="notify_data">
+                        <div class="title">
+                            Lorem, ipsum dolor.  
+                        </div>
+                        <div class="sub_title">
+                          Lorem ipsum dolor sit amet consectetur.
+                      </div>
+                    </div>
+                    <div class="notify_status">
+                        <p>Failed</p>  
+                    </div>
+                </li> 
+                <li class="kfc success">
+                    <div class="notify_icon">
+                        <span class="icon"></span>  
+                    </div>
+                    <div class="notify_data">
+                        <div class="title">
+                            Lorem, ipsum dolor.  
+                        </div>
+                        <div class="sub_title">
+                          Lorem ipsum dolor sit amet consectetur.
+                      </div>
+                    </div>
+                    <div class="notify_status">
+                        <p>Success</p>  
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+  </div>
+  
+</div>
+
+
+
+<!------------------------------- End of  Notifications Bar  !--------------------->
+    
+
+
+<div class="body_similar">
+        <div class="users-container">
+            <section class="users">
+                <header class="user-details">
+
                     <div class="content">
                         <img src="php/images/<?php echo $row['image'] ?>" alt="">
+                        <input type="hidden" value="<?php echo $row['id'] ?>" id="current_id_user">
+
                         <div class="details">
                             <span><?php echo $row['name']. " " . $row['lastname']; ?> </span>
                             
@@ -41,7 +312,6 @@
                             
                         </div>
                     </div>
-                   <!---- <a href="#" class="logout">Logout</a> -->
                 </header>
 
                 <div class="search">
@@ -50,7 +320,7 @@
                 </div>
 
                 <div class="users-list">
-                        <div class="test">
+
                 <header class="user-list">
                     <div class="content">
                         <img src="images/ecospare.png" alt="">
@@ -65,55 +335,9 @@
                         </div>
                     </div>
                     </header>
-                    </div>
-                    <?php
-                        /*$query1 = "SELECT * FROM users Where not id='{$user_id}'";
-                        $result1 = mysqli_query($conn,$query1);
-                        
-                        while($row_new = mysqli_fetch_assoc($result1)){}*/
-    
-                    ?>
+
                     <div class="recent_conversations">
-                        <header class='user-list'>
-        <div class='content'>
-
-            <div class="avatars">
-                <span class="avatar">
-                <img src='php/images/img1.jpg'>
-                <img src='php/images/img2.jpg'>
-
-                </span>
-            </div>
-
-            <div class='details-user-message'>
-                <span>Admin and jane</span>
-                <i class='fas fa-circle center'></i>
-                <div class='message'>                                
-                    <p>this is a test message</p>
-                </div>
-            </div>
-        </div>
-        </header>
                     </div>
-                    <!--
-                    <header class="user-list">
-                    <div class="content">
-
-                        <img src="php/images/<?php echo $row_new['image']?>" alt="">
-                        <input type="hidden" value="<?php echo $row_new['id']?>" name="ingoing_id">
-                        
-                        <div class="details-user-message">
-                            <span><?php  echo $row_new['name'] ?></span>
-                            <i class="fas fa-circle center"></i>
-                            <div class="message">                                
-                                <p>No message are available now.</p>
-                            </div>
-                            
-                        </div>
-                    </div>
-                    </header>
-
-                    !-->
 
                 </div>
     
@@ -127,15 +351,15 @@
             </div>
 
             <div class="chat-section">
-                
+
             <div class="chatbox">
 
             </div>
 
-                    <form method="POST" action="#" autocomplete="off">
+                    <form method="POST" action="#" autocomplete="off" enctype='multipart/form-data'>
                         <div class="typing-area">
-                            <input type="file" size="60" hidden id="file_image"/>
-                            <button for="fileimage"><i class="fas fa-link"></i></button>
+                            <input type="file" size="60" hidden id="input_image" name="file_name"/>
+                            <button for="input_image" id="button_image" type="button"><i class="fas fa-link"></i></button>
                             <input id="typing_input" type="text" placeholder="write a message to send" name="message_content">
                             <button type="submit"><i class="fab fa-telegram"></i> </button>
                         </div>
@@ -148,6 +372,12 @@
         </div>
 
         <div class="user-profile">
+         
+
+        <?php 
+        if($row['type']!="admin" ){
+
+        ?>
             <img src="images/ecospare.png" alt="">
             <div class="location">
                 <i class="fas fa-map-marker-alt"></i>
@@ -159,7 +389,9 @@
             <div class="bio">
                 EcoSpare is a rising company based in France that offer a Marketplace where you can find usefull items for your needs.
             </div>
-
+        <?php
+        }
+        ?>
             <div class="contact_buttons">
                 <?php 
                     if($row['type']=="vendeur"){
@@ -171,7 +403,7 @@
                 <button id="admin_contact"> Contacter Administration </button>
                 <?php
                 }
-                else{
+                elseif($row['type']=="acheteur"){
 
                 
                 ?>        
@@ -185,9 +417,10 @@
 
         </div>
 
-    
+        </div>
 
     <script src="js/users.js"></script>    
+
 
 </body>
 </html>

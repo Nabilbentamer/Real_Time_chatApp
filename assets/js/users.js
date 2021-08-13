@@ -1,25 +1,42 @@
-//const user_list = document.querySelectorAll(".users-list header");
-
+const recipient_details = document.querySelector(".recipient-details");
 const user_recipient = document.querySelector(".recipient-details p span");
+
 const chatbox = document.querySelector(".chatbox");
 const chat_section = document.querySelector(".chat-section");
 const form = document.querySelector(".chat-section form");
-const send_button = document.querySelector(".typing-area button");
 
+const send_button = document.querySelectorAll(".typing-area button")[1];
 const typing_input = document.getElementById("typing_input");
+
 const product_contact = document.querySelector(".contact_buttons button:nth-child(2)");
 const commande_contact = document.querySelector(".contact_buttons button:nth-child(1)");
 
 const commande_contact_acheteur = document.getElementById("commande_contact_acheteur");
 const admin_contact = document.getElementById("admin_contact");
 
-const recent_conversations = document.querySelector(".users-list");
+var recent_conversations = document.querySelector(".users-list");
 
+const user_profile = document.querySelector('.user-profile');
+
+
+var current_user_id = document.getElementById("current_id_user");
+// Select upload file elements: 
+const input_image = document.getElementById("input_image");
+const button_image = document.querySelectorAll(".typing-area button")[0];
+
+const input_current = document.getElementById("current_conversation");
+
+var MessageCount = document.getElementById("MessageCount");
 
 form.onsubmit = (e) => {
     e.preventDefault();
 }
 
+
+button_image.onclick = () => {
+    input_image.click();
+
+}
 
 send_button.onclick = () => {
     
@@ -33,7 +50,12 @@ send_button.onclick = () => {
 
             let data = xhr.response ;
             typing_input.value = "";
-            console.log(data);
+            input_image.value= "";
+            update_chat();
+            get_recent();
+            if(data=="no success"){
+                alert("ce genre de fichier n'est pas supporté");
+            }
         }
     }
 
@@ -41,31 +63,80 @@ send_button.onclick = () => {
     xhr.send(formData);
     
     update_chat();
-    
-
-    
+        
 }
-
-setInterval(()=>{update_chat();} ,500)
-setInterval(()=>{get_recent();} ,500)
-
+var x=null;
 recent_conversations.addEventListener("click",function(event){
 
 
     var mytarget = event.target.closest(".user-list");
+    //changeColor(mytarget);
+    x=mytarget;
     user_recipient.innerHTML = mytarget.querySelector(".details-user-message span").innerHTML;
     ingoing_id = mytarget.querySelector("input").value;
     document.cookie = "ingoing_id="+ingoing_id;
 
     if(mytarget.querySelector(".input_user")){
-        console.log("ok");
         outgoing_id = mytarget.querySelector(".input_user").value;
         document.cookie = "outgoing_id="+outgoing_id;
+    }
+    else{
+        document.cookie = "outgoing_id=";
+    }
+    if(current_user_id.value=="1"){
+        get_users_details();
     }
     update_chat();
 
 
+
 })
+
+function get_users_details(){
+
+    
+    let xhr = new XMLHttpRequest();
+    method = "POST";
+    url = "php/get_conversation_memebers_info.php";
+    xhr.open(method,url,true);
+
+    xhr.onload = () => {
+        if(xhr.readyState === 4 && xhr.status === 200){
+
+            
+            let data = xhr.response ;
+            user_profile.innerHTML=data;
+
+
+        }
+        else{
+            console.log("no working");
+        }
+    }
+    xhr.send();
+
+}
+
+function update_message_status(conversation){
+
+    let xhr = new XMLHttpRequest();
+    method = "POST";
+    url = "php/update_message_status.php";
+    xhr.open(method,url,true)
+
+    xhr.onload = () => {
+        if(xhr.readyState === 4 && xhr.status === 200){
+
+            let data = xhr.response ;
+            console.log(data);
+        }
+        else{
+            console.log("no working");
+        }
+    }
+    xhr.send();
+
+}
 
 
 function update_chat(){
@@ -80,8 +151,8 @@ function update_chat(){
 
             let data = xhr.response ;
             chatbox.innerHTML = data;
-            chat_section.scrollTop=chat_section.scrollHeight;
             get_recent();
+            scroll_Botoom();
 
         }
         else{
@@ -89,11 +160,13 @@ function update_chat(){
         }
     }
     xhr.send();    
+    
+
 
 
 }
 // when product button is clicked:
-
+if(product_contact){
 product_contact.onclick =() =>{
     
     let product_id = prompt("please enter product id");
@@ -110,7 +183,6 @@ product_contact.onclick =() =>{
         
             let data = xhr_0.response;
             let new_data =JSON.parse(data);
-            //console.log(new_data.product_vendeur_id);
             
             let xhr = new XMLHttpRequest();
             method = "POST";
@@ -137,15 +209,13 @@ product_contact.onclick =() =>{
 
 
 }
+}
 
-
+if(commande_contact){
 commande_contact.onclick =() =>{
     
     let commande_id = prompt("please enter commande id");
     document.cookie="type=commande";
-
-
-    
 
     let xhr_0 = new XMLHttpRequest();
     method = "POST";
@@ -187,7 +257,7 @@ commande_contact.onclick =() =>{
 
 
 }
-
+}
 
 // Button pour l'acheteur : contacter à propos une commande
 if(commande_contact_acheteur){
@@ -267,18 +337,45 @@ admin_contact.onclick= ()=>{
 
 
 function get_recent(){
+
+
     let xhr = new XMLHttpRequest();
     xhr.open("GET", "php/get_recent_conversation.php", true);
     xhr.onload = () => {
         if(xhr.readyState === 4 && xhr.status === 200){
-
             let data = xhr.response ;
+            
             recent_conversations.innerHTML = data;
+            
+            var y = recent_conversations.querySelector('#message_num').value;
+            MessageCount.innerHTML=y;
+            /*
+            if(y=='0'){
+                MessageCount.style.display='none';
+
+            }
+            else{
+                MessageCount.innerHTML=y;
+            }*/
+            
 
         }
     }
     xhr.send();
 
+
 };
 
+
+function scroll_Botoom(){
+    chat_section.scrollTop=chat_section.scrollHeight;
+
+}
+
+
 get_recent();
+
+setInterval(get_recent,500);
+setInterval(update_chat,500);
+
+

@@ -13,6 +13,7 @@
                 if($sql2){
                     $_SESSION['id'] = $row['id'];
                     $_SESSION['name']= $row['name'];
+                    $_SESSION['status']='active';
                     echo "success";
                 }else{
                     echo "Something went wrong. Please try again!";

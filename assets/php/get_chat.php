@@ -2,7 +2,7 @@
     session_start();
     include_once "config.php";
     
-    if($_SESSION['id']=='1'){
+    if($_SESSION['id']=='1' && isset($_COOKIE['outgoing_id'])){
         $outgoing_msg_id =$_COOKIE['outgoing_id']; 
     }
     else{
@@ -12,7 +12,7 @@
     if(isset($_COOKIE['ingoing_id'])){
         $incoming_msg_id = $_COOKIE['ingoing_id'];
 
-    }
+    
 
     $combined_msg_id = $outgoing_msg_id.$incoming_msg_id;
     $inverse_msg_id = $incoming_msg_id.$outgoing_msg_id;
@@ -35,13 +35,35 @@
 
     while($row = mysqli_fetch_assoc($result)){
 
-
+        
         if($row['type'] == "conversation")
         {
+
+            // check message type (image or doc). if none display text!
+            $message_expode = explode(".",$row['message_content']);
+            $file_extension = end($message_expode);
+            $image_extensions = ['jpg','png','jpeg'];
+            $doc_extensions = ['pdf','docx','doc'];
+            
+            if(in_array($file_extension,$image_extensions)){
+                $row['message_content']="<img src='php/images/".$row['message_content']."' style='height:150px;
+                width: 150px;
+                border-radius: 100%;
+                object-fit: cover;'>";
+            }
+            else if(in_array($file_extension,$doc_extensions)){
+                $row['message_content']="<a href='php/images/".$row['message_content']."'download style='color:grey'>file.".$file_extension."</a>";
+
+            }
+
+            /*-------------------check message type (image or doc). if none display text! -------------------------*/ 
+
+            
             if($row['outgoing_msg_id'] == $outgoing_msg_id){
                 echo "<div class='chat outgoing'>
                 <div class='details'>
                     <p>".$row['message_content']."</p>
+                    
                 </div>
                 <img src='php/images/".$row2['image']."'>
             </div>";
@@ -110,7 +132,7 @@
 
     }
 
-
+    }
 
 
 ?>
