@@ -14,30 +14,8 @@
     <link rel="stylesheet" href="css/chatarea.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" >
 
-
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-	<script>
-		$(document).ready(function(){
-			$(".profile .icon_wrap").click(function(){
-			  $(this).parent().toggleClass("active");
-			  $(".notifications").removeClass("active");
-			});
 
-			$(".notifications .icon_wrap").click(function(){
-			  $(this).parent().toggleClass("active");
-			   $(".profile").removeClass("active");
-			});
-
-			$(".show_all .link").click(function(){
-			  $(".notifications").removeClass("active");
-			  $(".popup").show();
-			});
-
-			$(".close").click(function(){
-			  $(".popup").hide();
-			});
-		});
-	</script>
 </head>
 <body>
 <?php
@@ -72,7 +50,7 @@
                     </div>
                     <div class="notify_data">
                         <div class="title">
-                            Lorem, ipsum dolor.  
+                            Nabil 
                         </div>
                         <div class="sub_title">
                           Lorem ipsum dolor sit amet consectetur.
@@ -175,117 +153,7 @@
     </div>
   </div>
   
-  <div class="popup">
-    <div class="shadow"></div>
-    <div class="inner_popup">
-        <div class="notification_dd">
-            <ul class="notification_ul">
-                <li class="title">
-                    <p>All Notifications</p>
-                    <p class="close"><i class="fas fa-times" aria-hidden="true"></i></p>
-                </li> 
-                <li class="starbucks success">
-                    <div class="notify_icon">
-                        <span class="icon"></span>  
-                    </div>
-                    <div class="notify_data">
-                        <div class="title">
-                            Lorem, ipsum dolor.  
-                        </div>
-                        <div class="sub_title">
-                          Lorem ipsum dolor sit amet consectetur.
-                      </div>
-                    </div>
-                    <div class="notify_status">
-                        <p>Success</p>  
-                    </div>
-                </li>  
-                <li class="baskin_robbins failed">
-                    <div class="notify_icon">
-                        <span class="icon"></span>  
-                    </div>
-                    <div class="notify_data">
-                        <div class="title">
-                            Lorem, ipsum dolor.  
-                        </div>
-                        <div class="sub_title">
-                          Lorem ipsum dolor sit amet consectetur.
-                      </div>
-                    </div>
-                    <div class="notify_status">
-                        <p>Failed</p>  
-                    </div>
-                </li> 
-                <li class="mcd success">
-                    <div class="notify_icon">
-                        <span class="icon"></span>  
-                    </div>
-                    <div class="notify_data">
-                        <div class="title">
-                            Lorem, ipsum dolor.  
-                        </div>
-                        <div class="sub_title">
-                          Lorem ipsum dolor sit amet consectetur.
-                      </div>
-                    </div>
-                    <div class="notify_status">
-                        <p>Success</p>  
-                    </div>
-                </li>  
-                <li class="baskin_robbins failed">
-                    <div class="notify_icon">
-                        <span class="icon"></span>  
-                    </div>
-                    <div class="notify_data">
-                        <div class="title">
-                            Lorem, ipsum dolor.  
-                        </div>
-                        <div class="sub_title">
-                          Lorem ipsum dolor sit amet consectetur.
-                      </div>
-                    </div>
-                    <div class="notify_status">
-                        <p>Failed</p>  
-                    </div>
-                </li> 
-                <li class="pizzahut failed">
-                    <div class="notify_icon">
-                        <span class="icon"></span>  
-                    </div>
-                    <div class="notify_data">
-                        <div class="title">
-                            Lorem, ipsum dolor.  
-                        </div>
-                        <div class="sub_title">
-                          Lorem ipsum dolor sit amet consectetur.
-                      </div>
-                    </div>
-                    <div class="notify_status">
-                        <p>Failed</p>  
-                    </div>
-                </li> 
-                <li class="kfc success">
-                    <div class="notify_icon">
-                        <span class="icon"></span>  
-                    </div>
-                    <div class="notify_data">
-                        <div class="title">
-                            Lorem, ipsum dolor.  
-                        </div>
-                        <div class="sub_title">
-                          Lorem ipsum dolor sit amet consectetur.
-                      </div>
-                    </div>
-                    <div class="notify_status">
-                        <p>Success</p>  
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
-  </div>
-  
-</div>
+
 
 
 

@@ -91,7 +91,7 @@ recent_conversations.addEventListener("click",function(event){
 
 
 })
-
+// get user details that are members of the current conversation (FOR ADMIN ONLY)
 function get_users_details(){
 
     
@@ -379,3 +379,25 @@ setInterval(get_recent,500);
 setInterval(update_chat,500);
 
 
+// show or hide drowp down menu: 
+
+$(document).ready(function(){
+    $(".profile .icon_wrap").click(function(){
+      $(this).parent().toggleClass("active");
+      $(".notifications").removeClass("active");
+    });
+
+    $(".notifications .icon_wrap").click(function(){
+      $(this).parent().toggleClass("active");
+       $(".profile").removeClass("active");
+    });
+
+    $(".show_all .link").click(function(){
+      $(".notifications").removeClass("active");
+      $(".popup").show();
+    });
+
+    $(".close").click(function(){
+      $(".popup").hide();
+    });
+});
